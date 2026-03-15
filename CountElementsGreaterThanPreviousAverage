@@ -1,0 +1,16 @@
+int countResponseTimeRegressions(vector<int> responseTimes) {
+    int count=0;
+    int n=responseTimes.size();
+    for(int j=1;j<n;j++){
+        double total=0;
+        for(int i=0;i<j;i++){
+            total+=responseTimes[i];
+        }
+        total/=j;
+        if(responseTimes[j]>total){
+            count++;
+        }
+    }
+    return count;
+}
+ 
