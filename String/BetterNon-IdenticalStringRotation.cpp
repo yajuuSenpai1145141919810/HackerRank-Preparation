@@ -24,3 +24,19 @@ bool isNonTrivialRotation(string s1, string s2) {
     }
     return false;
 }
+/*bool found = false;
+*int len_c = comb.length();
+*int len_s = s2.length();
+*
+*// 外層迴圈：決定從哪一個位置開始比對
+*for (int i = 0; i <= len_c - len_s; i++) {
+*    // 內層比對：從位置 i 開始，抓出長度為 len_s 的子字串來比比看
+*    // 這裡我們用 C++ 內建的 substr(開始位置, 長度) 來簡化
+*   if (comb.substr(i, len_s) == s2) {
+*        found = true;
+*        break; // 找到了，不用再找了，直接跳出迴圈
+*    }
+*}
+*
+*if (found) return true;
+*/
