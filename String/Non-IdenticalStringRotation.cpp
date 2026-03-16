@@ -28,6 +28,7 @@ bool isNonTrivialRotation(string s1, string s2) {
         temp.erase(0, 1);       // 刪除第 0 個字
         temp.push_back(firstChar); // 加到最後面
 
+        //這段的重點就是 我轉動s1 去看是否會跟s2一樣 如果一樣的話 要避免題目說的轉完後跟原本s1一樣
         // 每轉一次，就檢查是否等於 s2
         if (temp == s2) {
             // 找到了！但還要最後確認：轉完後不能等於原本的 s1
