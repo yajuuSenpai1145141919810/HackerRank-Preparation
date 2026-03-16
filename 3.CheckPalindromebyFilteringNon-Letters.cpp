@@ -14,7 +14,6 @@ bool isAlphabeticPalindrome(string code) {
   
   //這邊可以過濾掉只有一個字母或數字以下的狀況
   while(left<right){
-    
     //if not alphabet ,skip
     if(!isalpha(code[left])){
       left++;
