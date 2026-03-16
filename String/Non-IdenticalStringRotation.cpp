@@ -8,18 +8,18 @@ bool isNonTrivialRotation(string s1, string s2) {
     int n = s1.length();
     int m = s2.length();
 
-    // 1. 處理「空字串」或「長度不等」 (你的第一個考量)
+    // 1. 處理「空字串」或「長度不等」
     if (n == 0 || n != m) return false;
 
-    // 2. 處理「只有一個字母」 (你的第二個考量)
+    // 2. 處理「只有一個字母」 
     // 因為只有一個字母，轉完一定跟自己一樣，不符合 Non-Identical
     if (n == 1) return false;
 
-    // 3. 題目要求 Non-Identical (旋轉前不能長得一模一樣)
+    // 3. 題目要求 Non-Identical 
     // 這也順便處理了「aaa」這種 case，因為 aaa 轉完還是 aaa
     if (s1 == s2) return false;
 
-    // 4. 開始「旋轉」並「比對」 (你的第三、四個考量)
+    // 4. 開始「旋轉」並「比對」
     string temp = s1;
     for (int i = 1; i < n; i++) {
         // 模擬左旋轉一次：把第一個字放到最後面
