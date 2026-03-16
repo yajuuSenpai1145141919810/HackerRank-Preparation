@@ -1,3 +1,4 @@
+//easy
 //Check Palindrome by Filtering Non-Letters
 //重點1.如果有兩個以上的字母再去檢查就好'
 //重點2.採取即時比對避免浪費
