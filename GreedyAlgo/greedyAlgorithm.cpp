@@ -3,6 +3,9 @@
 //Given an array of intervals where each interval has a start and end time, return the maximum number of non-overlapping intervals.\
 //0 <= meetings.length <= 1000   0 <= meetings[i][0] < meetings[i][1] <= 10^9
 
+//解題思路
+//最大化不重疊數量 >>> Interval Scheduling  >>> Sort by End Time + Greedy
+
 //如果是「最少移除」幾場？ return n-count
 //如果會議有優先權 (Weight)？ 改用dp
 
