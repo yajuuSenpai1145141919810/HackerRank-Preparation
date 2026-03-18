@@ -3,6 +3,10 @@
 //Given an array of intervals where each interval has a start and end time, return the maximum number of non-overlapping intervals.\
 //0 <= meetings.length <= 1000   0 <= meetings[i][0] < meetings[i][1] <= 10^9
 
+//如果是「最少移除」幾場？ return n-count
+//如果會議有優先權 (Weight)？ 改用dp
+
+
 //[[1,2], [3,4]]，meetings[0] 就是 [1,2]，而 meetings[0][0] 就是 1（開始時間）
 int maximizeNonOverlappingMeetings(vector<vector<int>> meetings) {
     int n=meetings.size();
@@ -16,6 +20,8 @@ int maximizeNonOverlappingMeetings(vector<vector<int>> meetings) {
     }
     
     //sort the meetings by end ,use lambda 注意這邊的語法 非常重要 這邊a[1 2],我們取a[1]就是end time
+    //只要處理的資料不是簡單的數字（如 int, char, bool），而是複雜的物件（如 vector, string, struct），就一律加上 const &
+    //加上 & 不產生複製，速度極快
     sort(meetings.begin(),meetings.end(),[](const vector<int> &a,const vector<int> &b)  { return a[1]<b[1]; });
     
     for(int i=0;i<n;i++){
