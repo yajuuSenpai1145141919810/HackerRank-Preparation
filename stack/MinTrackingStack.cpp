@@ -1,7 +1,10 @@
 // Min-Tracking Stack Implementation
 // Implement a stack that supports push, pop, top, and getMin operations in O(1) time, where getMin returns the minimum element.
 
-// 主題是min track 且題目有說要O(1) 所以要選擇用Two Stacks去解決
+// Input format: array of n number of operations
+// Output format: An integer array of length equal to the total number of "top" and "getMin" operations in the input
+
+// min track 且要O(1)的getmin 所以要選擇用Two Stacks
 // 不能在呼叫 getMin 時才去找答案，必須在 push 的那一刻就把「當下的最小值」存起來
 // push pop不用列出來,但getmin top 要
 
