@@ -60,5 +60,31 @@ s.find("abc")：找子字串。如果沒找到，會回傳 string::npos（這是
 stoi(s)：String to Integer。把字串 "123" 變成整數 123（非常常用！）。
 to_string(num)：把整數變回字串
 
+1. vector<T>：動態陣列 (最常用)
+這是你在處理「一串資料」時的首選，比傳統陣列 int a[100] 好用一萬倍。
+寫法： vector<int> nums; 或 vector<string> names;
+必殺技： nums.push_back(10); (自動幫你增加長度)。
+應用： 儲存會議時間、股價、學生成績。
+
+2. queue<T>：佇列 (排隊)
+跟 stack 相反，它是 先進先出 (FIFO)。
+寫法： queue<int> q;
+必殺技： q.push(x); (進去排隊), q.front(); (看第一個), q.pop(); (第一個離開)。
+應用： 廣度優先搜尋 (BFS)、作業系統的任務排程。
+
+3. unordered_map<Key, Value>：雜湊表 (字典)
+這是面試中最容易拿到高分的工具。它能讓你用「鑰匙」去查「數值」。
+寫法： unordered_map<string, int> scores;
+範例： scores["Alice"] = 95;
+應用： 統計單字出現次數、Two Sum 題目、快速查找資料
+
+4. unordered_set<T>：集合 (不重複)
+如果你只關心「有沒有出現過」，而不在乎出現幾次，就用這個。
+寫法： unordered_set<int> seen;
+必殺技： seen.insert(10); 如果再插入一次 10，它會自動忽略。
+應用： 檢查資料是否重複、過濾重複的 ID
+
+
+
 
 
