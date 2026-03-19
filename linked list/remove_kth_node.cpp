@@ -48,9 +48,10 @@ SinglyLinkedListNode* removeKthNodeFromEnd(SinglyLinkedListNode* head, int k) {
     
     // 讓 nodeToDelete 指向5 不是必要的 但避免leak
     SinglyLinkedListNode* nodeToDelete = slow->next;
-
+    
     //把 dummy 的鉤子拔起來，跳過 5，直接勾到後面的 6 身上
     //注意此時slow依舊指向dummy!!!!
+    //不能直接把 head= slow->next->next; 再刪掉5,這時候如果dummy前面有數字 會全部被丟掉!!!因此要先連接再刪除
     slow->next = slow->next->next;
     delete nodeToDelete;
 
