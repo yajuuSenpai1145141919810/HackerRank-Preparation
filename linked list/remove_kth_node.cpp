@@ -50,9 +50,11 @@ SinglyLinkedListNode* removeKthNodeFromEnd(SinglyLinkedListNode* head, int k) {
     SinglyLinkedListNode* nodeToDelete = slow->next;
 
     //把 dummy 的鉤子拔起來，跳過 5，直接勾到後面的 6 身上
+    //注意此時slow依舊指向dummy!!!!
     slow->next = slow->next->next;
     delete nodeToDelete;
 
+    //也可以寫成slow->next
     SinglyLinkedListNode* newHead = dummy->next;
     delete dummy;
     return newHead;
