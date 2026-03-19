@@ -22,18 +22,22 @@ SinglyLinkedListNode* removeKthNodeFromEnd(SinglyLinkedListNode* head, int k) {
     
     if (!head || k < 0) return head;
     
-    //建立一個dummy 解決刪除第一個點
+    //建立一個dummy 解決刪除第一個點的難題
     SinglyLinkedListNode* dummy = new SinglyLinkedListNode(0);
     dummy->next = head;
     
     SinglyLinkedListNode* fast = dummy;
     SinglyLinkedListNode* slow = dummy;
-
+    
+    //這題最大的陷阱就是 這題的k=3實際上是倒數第四個 因此要用<=k!!
     for (int i = 0; i <= k; i++) {
+        
+        //K太大了
         if (fast->next == nullptr) {
             delete dummy;
             return head; 
         }
+        //這邊的意思是 我fast原本只向dummy,且dummy的掛鉤目前勾著5,則 我把fast指向5
         fast = fast->next;
     }
 
@@ -41,8 +45,11 @@ SinglyLinkedListNode* removeKthNodeFromEnd(SinglyLinkedListNode* head, int k) {
         fast = fast->next;
         slow = slow->next;
     }
-
+    
+    // 讓 nodeToDelete 指向5 不是必要的 但避免leak
     SinglyLinkedListNode* nodeToDelete = slow->next;
+
+    //把 dummy 的鉤子拔起來，跳過 5，直接勾到後面的 6 身上
     slow->next = slow->next->next;
     delete nodeToDelete;
 
