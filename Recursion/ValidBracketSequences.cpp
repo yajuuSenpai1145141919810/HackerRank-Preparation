@@ -5,7 +5,7 @@
 // 這題跟Validate Brackets那一題目差在 這題只有一種 所以不要用stack
 // 不能用 while 的原因只有一個：while 只能走出一條直線，但這題是一棵樹!!!
 
-
+include<iostream>
 vector<string> generateAngleBracketSequences(int n) {
     
     vector<string> result;
@@ -13,18 +13,28 @@ vector<string> generateAngleBracketSequences(int n) {
         return {};
     }
     auto backstrack=[&](auto& self,string current,int left,int right){
+
+        // 如果說n=2 其中一種 "<><>" 跑完後就輸出
         if(current.length()==2*n){
+
+            //這是vector用的語法
             result.push_back(current);
             return;
         }
         
         if(left<n){
+
+            // 因為要recursion下去 自己呼叫自己
             self(self,current+'<',left+1,right);
         }
         if(right<left){
         self(self,current+'>',left,right+1);
         }
-    };
+    }; // 不要忘記這邊有一個;!!!
+
+    // backtrack(backtrack, ...)：
+    // 第一個 backtrack 是**「動作」（我要啟動這台機器）。
+    // 第二個 backtrack 是「零件」**（我要把這台機器的名片傳進去，讓它內部可以遞迴）。
     backstrack(backstrack,"" ,0,0);
     return result;
 }
