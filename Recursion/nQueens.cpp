@@ -3,11 +3,16 @@
 // return true if N cameras can be placed on empty cells such that no two share the same row, column, or diagonal.
 // Input:N = 4, grid = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]], Output: True
 // 人話就是八個皇后的問題啦 但有障礙物
-bool dfs(int row, int N, vector<vector<int>>& grid,
-         vector<bool>& col,
-         vector<bool>& d1,
-         vector<bool>& d2) {
 
+// Diagonal: 右上到左下(0,2), (1,1), (2,0) 的和都是 2,左上到右下 (0,0), (1,1), (2,2) 的差都是 0。
+// 在一個 4*4的棋盤中，有 14 條（7 條正向，7 條反向）
+
+bool dfs(int row, int N, vector<vector<int>>& grid, // row 現在做到哪一行, N就是大小
+         vector<bool>& col,   // 記錄哪一欄已經放過相機了
+         vector<bool>& d1,    // 正對角線：右上到左下,只要其中一個點被佔用，整條斜線就封鎖 
+         vector<bool>& d2) {  // 反對角線：左上到右下 
+         
+    // 終止條件
     if (row == N) return true;
 
     for (int c = 0; c < N; c++) {
