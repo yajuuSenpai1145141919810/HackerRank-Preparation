@@ -22,7 +22,16 @@ vector<string> minTasksToCancelForNoConflict(string digits) {
     };
     vector<string> result;
     auto solve=[&](auto& self,int index,string current)->void{
-        if(index==)
-    }
-    
+        if(index==digits.length()){
+            result.push_back(current);
+            return;
+        }
+        string letter=mapping[digits[index]-'0'];
+        for(char c:letter){
+            self(self,index+1,current+c);
+        }
+    };
+    solve(solve,0,"");
+
+    return {result};
 }
