@@ -21,12 +21,17 @@ vector<string> minTasksToCancelForNoConflict(string digits) {
         "wxyz"
     };
     vector<string> result;
+    // index就是我現在做到哪裡 如果說23,index=0就是2(指向現在做到哪裡拉)
     auto solve=[&](auto& self,int index,string current)->void{
         if(index==digits.length()){
             result.push_back(current);
             return;
         }
+        
+        // digits[index] 抓出字元轉成數字 , "- '0'" 文字轉數字
+        // mapping[0] 是 "0", mapping[1] 是 "1",mapping[2] 是 "abc"
         string letter=mapping[digits[index]-'0'];
+        
         for(char c:letter){
             self(self,index+1,current+c);
         }
