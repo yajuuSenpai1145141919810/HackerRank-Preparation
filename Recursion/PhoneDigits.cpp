@@ -3,3 +3,26 @@
 // return all possible letter combinations in lexicographical order.
 
 // 每一層都有多個選擇，且層數不固定->backtracking
+
+vector<string> minTasksToCancelForNoConflict(string digits) {
+    if(digits.empty()){
+        return {};
+    }
+    vector<string> mapping{
+        "0",
+        "1",
+        "abc",
+        "def",
+        "ghi",
+        "jkl",
+        "mno",
+        "pqrs",
+        "tuv",
+        "wxyz"
+    };
+    vector<string> result;
+    auto solve=[&](auto& self,int index,string current)->void{
+        if(index==)
+    }
+    
+}
