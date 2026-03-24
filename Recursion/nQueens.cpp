@@ -5,7 +5,7 @@
 // 人話就是八個皇后的問題啦 但有障礙物
 
 // Diagonal: 右上到左下(0,2), (1,1), (2,0) 的和都是 2,左上到右下 (0,0), (1,1), (2,2) 的差都是 0。
-// 在一個 4*4的棋盤中，有 14 條（7 條正向，7 條反向）
+// 在一個 4*4的棋盤中，有 14 條（7 條正向，7 條反向),就算以反對角線來看 只有一個點的(0,3),(3,3)也是 只是長度是一
 
 bool dfs(int row, int N, vector<vector<int>>& grid, // row 現在做到哪一行, N就是大小
          vector<bool>& col,   // 記錄哪一欄已經放過相機了
@@ -16,22 +16,21 @@ bool dfs(int row, int N, vector<vector<int>>& grid, // row 現在做到哪一行
     if (row == N) return true;
 
     for (int c = 0; c < N; c++) {
+             
+        // 這一格是空的嗎?
         if (grid[row][c] == 1) continue;
-
+             
+        // 右上到左下的斜線(0, 2), (1, 1), (2, 0),diag1 就編號為 2。
         int diag1 = row + c;
+             
+        // 左上到右下的斜線 
         int diag2 = row - c + N - 1;
-
-       
+             
         if (col[c] || d1[diag1] || d2[diag2]) continue;
-
-     
         col[c] = true;
         d1[diag1] = true;
         d2[diag2] = true;
-
         if (dfs(row + 1, N, grid, col, d1, d2)) return true;
-
-    
         col[c] = false;
         d1[diag1] = false;
         d2[diag2] = false;
