@@ -7,6 +7,7 @@
 vector<int> parent;
 
 // find 是在找這個節點的 root（老大）是誰。
+// find 做了兩件事：找 root, 順便壓縮路徑
 int find(int x) {
     // note:對於[0 1 2 3] 一開始就有複製一份parent=[0 1 2 3] 了喔!
     if (parent[x] != x)
