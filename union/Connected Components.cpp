@@ -6,8 +6,9 @@
 
 vector<int> parent;
 
+// find 是在找這個節點的 root（老大）是誰。
 int find(int x) {
-    // 對於[0 1 2 3] 一開始就有複製一份parent=[0 1 2 3] 了喔!
+    // note:對於[0 1 2 3] 一開始就有複製一份parent=[0 1 2 3] 了喔!
     if (parent[x] != x)
         parent[x] = find(parent[x]);
     return parent[x];
@@ -15,9 +16,12 @@ int find(int x) {
 // 把一條邊的兩個端點串起來 [0,1]這樣丟進去
 void unite(int a, int b) {
     int ra = find(a), rb = find(b);
+
+    //如果是1,2就把兩個的parents都改成2(以大的為主
     if (ra != rb)
         parent[ra] = rb;
 }
+
 // Ex:links = [[0, 1], [2, 3]]
 int countIsolatedCommunicationGroups(vector<vector<int>> links, int n) {
     parent.resize(n);
