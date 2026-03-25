@@ -10,13 +10,17 @@
 //『左子樹』跟『右子樹』誰比較高，然後加 1 就好
 // 高度不需要 values!!!!!
 
-// 現在走到哪一個索引了？ currentIndex,
+// 現在走到哪一個索引了？ currentIndex, 對於VECTOR就是直接加上const跟&,如果要排序就不要加
 int calculate(int currentIndex, const vector<int>& leftChild, const vector<int>& rightChild) {
+    // 終止條件
     if (currentIndex == -1) {
         return 0;
     }
+    // 問左 問右
     int leftH = calculate(leftChild[currentIndex], leftChild, rightChild);
     int rightH = calculate(rightChild[currentIndex], leftChild, rightChild);
+
+    // 我要跟誰比,我有沒有算進去？
     return 1 + max(leftH, rightH);
 }
 
