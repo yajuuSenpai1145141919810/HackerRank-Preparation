@@ -14,3 +14,25 @@
 // Tree2's root is 3 with children 1 (right child 2) and 5 (left child 4). - The shapes differ, so the function returns true.
 // 注意他題目說不要比較100001的值 要過濾掉! val1 是「資料」, root1 是「結構 + 資料」
 
+bool verifySameMultisetDifferentStructure(vector<int> root1, vector<int> root2) {
+    vector<int> val1;
+    vector<int> val2;
+    for(int x: root1){
+        if(x!=100001) val1.push_back(x);}
+    for(int x: root2){
+        if(x!=100001) val2.push_back(x);}
+    sort(val1.begin(),val1.end());
+    sort(val2.begin(),val2.end());
+    if(val1!=val2){
+        return false;
+    }
+    
+
+    for(int i=0;i<min(root2.size(),root1.size();i++){
+        if((root1[i]==100001&&root2[i]!=100001)||(root1[i]!=100001&&root2[i]==100001)){
+            return true;
+        }
+    }
+    return false;
+}
+
