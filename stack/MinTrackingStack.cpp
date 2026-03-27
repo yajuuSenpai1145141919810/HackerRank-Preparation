@@ -21,17 +21,15 @@ vector<int> getMinStack(vector<string> operations) {
     stack<int> minStack; // 為了讓getmin可以是O(1)
   
     // operations 這個清單裡的東西，一個一個拿出來，暫時取名叫 op，然後進去大括號 {} 裡面執行動作
-    // for (int i = 0; i < operations.size(); i++) {
-    // string op = operations[i];
     for (string op : operations) {
       
-        // note: 遇到string 不用switch
+        // note: switch不支援string
         // 只有push有數字,且find是傳回來找到的起始位子,又題目的operations每一個資料都有用,隔開 因此==0就是抓每一個push
         // 不行寫 op == "push"：代表剛好只有push這四個字，抓不了數字
         if (op.find("push") == 0) {
           
             // substr(5): ex.push 12則剛好是從1的地方開始切substr
-            //上面宣告用int 要轉int
+            // 上面宣告用int 要轉int
             int val = stoi(op.substr(5)); 
 
             //處理mainstack
