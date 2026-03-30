@@ -24,10 +24,12 @@ m.end()。m.erase(key)：刪除。
 
 4. std::queue (佇列) — 用於 BFS (找最短路徑)
 特性：先進先出 (FIFO)。
-q.push(x)：排隊進去。
-q.pop()：排第一個的離開。
-q.front()：看排第一個的是誰。
-q.empty()：檢查空了沒。
+推入,q.push(val),在隊伍 末端 加入一個元素。
+彈出,q.pop(),移除隊伍 最前端 的元素（注意：這不回傳值）。
+看隊頭,q.front(),回傳隊伍 最前端 的元素（不移除）。
+看隊尾,q.back(),回傳隊伍 最末端 的元素。
+檢查空,q.empty(),若 queue 是空的則回傳 true，否則 false。
+看大小,q.size(),回傳目前 queue 裡有多少個元素。。
 
 5. std::priority_queue (優先佇列/堆積) — 用於 Meeting Rooms II
 特性：會自動排序，最上面的一定是最大（或最小）值。
