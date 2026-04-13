@@ -20,7 +20,6 @@ vector<int> getMinStack(vector<string> operations) {
     stack<int> mainStack; 
     stack<int> minStack; // 為了讓getmin可以是O(1)
   
-    // operations 這個清單裡的東西，一個一個拿出來，暫時取名叫 op，然後進去大括號 {} 裡面執行動作
     for (string op : operations) {
       
         // note: switch不支援string
@@ -31,8 +30,7 @@ vector<int> getMinStack(vector<string> operations) {
             // substr(5): ex.push 12則剛好是從1的地方開始切substr
             // 上面宣告用int 要轉int
             int val = stoi(op.substr(5)); 
-
-            //處理mainstack
+            
             mainStack.push(val);
             
             // 處裡minStack：如果新數字更小就放新的，否則重複放目前的最小值 如果說現在有8 進來2 就加入
